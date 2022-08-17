@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { GameContext } from '../../contexts/GameContext';
 
 const SelectorButton = ({ type }) => {
-  const { gameState, dispatch } = useContext(GameContext);
+  const { dispatch } = useContext(GameContext);
 
   const handleClick = () => dispatch({ type: 'SET_MODE', mode: type });
 
