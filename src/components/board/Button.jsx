@@ -16,10 +16,10 @@ const Button = ({ index }) => {
     <button
       className={`h-24 w-24 rounded ${
         highlight[index]
-          ? 'bg-green-500 hover:bg-green-700 text-white'
-          : 'bg-white hover:bg-slate-400'
+          ? 'bg-green-500 hover:bg-green-700'
+          : 'bg-white hover:bg-slate-200'
       } duration-200 text-2xl font-bold ${
-        board[index] === 'X' ? 'text-blue-500' : 'text-red-500'
+        board[index] === 'X' ? 'text-blue-700' : 'text-red-700'
       }`}
       onClick={handleClick}
       disabled={board[index] || status === 'finished'}

@@ -37,6 +37,15 @@ const gameReducer = (state, action) => {
         status: 'finished',
         winner: state.status !== 'finished' ? 'draw' : state.winner,
       };
+    case 'RESTART':
+      return {
+        mode: null,
+        turn: 'X',
+        board: Array(9).fill(null),
+        highlight: Array(9).fill(null),
+        status: 'idle',
+        winner: null,
+      };
     default:
       return state;
   }
