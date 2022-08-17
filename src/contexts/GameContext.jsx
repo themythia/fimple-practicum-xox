@@ -14,8 +14,6 @@ const GameProvider = ({ children }) => {
   };
   const [gameState, dispatch] = useReducer(gameReducer, initialState);
 
-  console.log('gameState:', gameState);
-
   return (
     <GameContext.Provider value={{ gameState, dispatch }}>
       {children}

@@ -1,14 +1,21 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GameContext } from '../../contexts/GameContext';
 import checkWinner from '../../utils/checkWinner';
+import cpuMove from '../../utils/cpuMove';
 import Button from './Button';
 
 const Board = () => {
   const { gameState, dispatch } = useContext(GameContext);
-  const { status, board, turn } = gameState;
+  const { mode, status, board, turn } = gameState;
+  // const [fc, setFc] = useState(0);
 
   useEffect(() => {
     if (status === 'active') {
+      if (turn === 'O' && mode === '1p') {
+        const cpuMoveIndex = cpuMove(board, turn).index;
+        dispatch({ type: 'CPU_MOVE', index: cpuMoveIndex });
+      }
+
       const { buttons, winner } = checkWinner(board);
       if (winner === 'draw') {
         dispatch({ type: 'END_GAME' });
@@ -16,7 +23,7 @@ const Board = () => {
         dispatch({ type: 'SET_HIGHLIGHT', buttons, winner });
       }
     }
-  }, [board, dispatch, status, turn]);
+  }, [board, dispatch, mode, status, turn]);
 
   return (
     <div

@@ -1,12 +1,11 @@
 const gameReducer = (state, action) => {
-  console.log('action.type', action.type);
   switch (action.type) {
     case 'SET_MODE':
       return {
         ...state,
         status: 'active',
         turn: 'X',
-        mode: '1p',
+        mode: action.mode,
       };
     case 'PLAY_BUTTON':
       return {
@@ -45,6 +44,14 @@ const gameReducer = (state, action) => {
         highlight: Array(9).fill(null),
         status: 'idle',
         winner: null,
+      };
+    case 'CPU_MOVE':
+      return {
+        ...state,
+        board: state.board.map((button, index) =>
+          index === action.index ? 'O' : button
+        ),
+        turn: 'X',
       };
     default:
       return state;

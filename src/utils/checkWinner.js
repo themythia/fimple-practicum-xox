@@ -1,4 +1,4 @@
-const checkWinner = (board) => {
+const checkWinner = (board, type = 'default') => {
   for (let i = 0; i <= 6; i += 3) {
     const check = board[i] + board[i + 1] + board[i + 2];
     if (check === 'XXX' || check === 'OOO') {
@@ -36,7 +36,7 @@ const checkWinner = (board) => {
     };
   }
 
-  if (board.filter((button) => !button).length === 0) {
+  if (board.filter((button) => button !== 'X' && button !== 'O').length === 0) {
     return { buttons: [], winner: 'draw' };
   }
   return { buttons: [], winner: null };
