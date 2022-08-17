@@ -3,7 +3,7 @@ import { GameContext } from '../../contexts/GameContext';
 import SelectorButton from './SelectorButton';
 
 const ModeSelector = () => {
-  const { gameState, dispatch } = useContext(GameContext);
+  const { gameState } = useContext(GameContext);
   return (
     <div
       className={`${

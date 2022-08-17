@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { GameContext } from '../../contexts/GameContext';
 import checkWinner from '../../utils/checkWinner';
 import cpuMove from '../../utils/cpuMove';
@@ -7,7 +7,6 @@ import Button from './Button';
 const Board = () => {
   const { gameState, dispatch } = useContext(GameContext);
   const { mode, status, board, turn } = gameState;
-  // const [fc, setFc] = useState(0);
 
   useEffect(() => {
     if (status === 'active') {

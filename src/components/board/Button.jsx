@@ -3,7 +3,7 @@ import { GameContext } from '../../contexts/GameContext';
 
 const Button = ({ index }) => {
   const { gameState, dispatch } = useContext(GameContext);
-  const { mode, board, status, highlight } = gameState;
+  const { board, status, highlight } = gameState;
 
   const handleClick = () => {
     // if game is active

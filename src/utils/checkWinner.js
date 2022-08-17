@@ -1,4 +1,4 @@
-const checkWinner = (board, type = 'default') => {
+const checkWinner = (board) => {
   for (let i = 0; i <= 6; i += 3) {
     const check = board[i] + board[i + 1] + board[i + 2];
     if (check === 'XXX' || check === 'OOO') {
