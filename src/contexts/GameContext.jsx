@@ -6,9 +6,11 @@ export const GameContext = createContext();
 const GameProvider = ({ children }) => {
   const initialState = {
     mode: null,
-    turn: null,
+    turn: 'X',
     board: Array(9).fill(null),
+    highlight: Array(9).fill(null),
     status: 'idle',
+    winner: null,
   };
   const [gameState, dispatch] = useReducer(gameReducer, initialState);
 

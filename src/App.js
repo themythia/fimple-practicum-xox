@@ -1,7 +1,7 @@
 import Board from './components/board/Board';
 import Container from './components/Container';
-import ModeSelector from './components/modeSelector/ModeSelector';
 import GameProvider from './contexts/GameContext';
+import ModeSelector from './components/modeSelector/ModeSelector';
 
 function App() {
   return (
